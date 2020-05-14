@@ -8,23 +8,23 @@
         <form action="#" onsubmit="ProcessScores();return false"> 
             <label for="StudentId">Student ID:</label>
             <br>
-            <input type="text" id="StudentId" name="StudentId">
+            <input type="number" id="StudentId" name="StudentId" min="1" required>
             <br>
             <label for="StudentName">Student name:</label>
             <br>
-            <input type="text" id="StudentName" name="StudentName">
+            <input type="text" id="StudentName" name="StudentName" maxlength="12" required>
             <br>
             <label for="Score1">Score 1:</label>
             <br>
-            <input type="text" id="Score1" name="Score1">
+            <input type="number" id="Score1" name="Score1" min="1" max="10" required>
             <br>
             <label for="Score2">Score 2:</label>
             <br>
-            <input type="text" id="Score2" name="Score2">
+            <input type="number" id="Score2" name="Score2" min="1" max="10" required>
             <br>
             <label for="Score3">Score 3:</label>
             <br>
-            <input type="text" id="Score3" name="Score3">
+            <input type="number" id="Score3" name="Score3" min="1" max="10" required>
             <br>
             <br>
             <input type="submit" value="Submit">
