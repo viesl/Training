@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+    <body>
+
+        <form action="#" onsubmit="ProcessScores();return false"> 
+            <label for="StudentId">Student ID:</label>
+            <br>
+            <input type="text" id="StudentId" name="StudentId">
+            <br>
+            <label for="StudentName">Student name:</label>
+            <br>
+            <input type="text" id="StudentName" name="StudentName">
+            <br>
+            <label for="Score1">Score 1:</label>
+            <br>
+            <input type="text" id="Score1" name="Score1">
+            <br>
+            <label for="Score2">Score 2:</label>
+            <br>
+            <input type="text" id="Score2" name="Score2">
+            <br>
+            <label for="Score3">Score 3:</label>
+            <br>
+            <input type="text" id="Score3" name="Score3">
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form> 
+        <fieldset id="Output" hidden>
+            <legend id="StudentNameOutput"></legend>
+            <p id="StudentIdOutput"></p>
+            <br>
+            <p id="Score1Output"></p>
+            <p id="Score2Output"></p>
+            <p id="Score3Output"></p>
+            <br>
+            <p id="TotalScore"></p>
+            <p id="Percentage"></p>
+            <br>
+            <p id="Description"></p>
+        </fieldset>
+
+        <script src="index.js"></script>
+    </body>
+</html>
