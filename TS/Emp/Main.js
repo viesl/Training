@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var EmployeeService_1 = require("./EmployeeService");
+var e = new EmployeeService_1.EmployeeService();
+console.log(e.getEmployees());
+console.log(e.getEmployeesbyId(4));
+console.log("Female Count " + e.getFemaleEmployeeCount());
+console.log("Employee Count" + e.getEmployeeCount());
+console.log("Deleted id 4");
+e.removeEmployeeById(4);
+e.addEmployee(7, "Vieslav", "SDD", "Engineering", "Male");
+console.log(e.getEmployees());
