@@ -11,7 +11,7 @@ function getInfo (paramOne: string | number, paramTwo?: string ): void {
     } else {
         console.log('Email:', paramOne);
     }
-} 
+}
 
 getInfo(1);
 getInfo('name@mail.com');
