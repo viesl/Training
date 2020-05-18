@@ -9,7 +9,7 @@ var ElectricityBillService = /** @class */ (function () {
             unit: unit
         };
     }
-    ElectricityBillService.prototype.calculateElectricityBill = function () {
+    ElectricityBillService.prototype.calculateConsumedElectricityBill = function () {
         if (this.customer.unit < 200) {
             return this.customer.unit * 1.2;
         }
@@ -22,8 +22,8 @@ var ElectricityBillService = /** @class */ (function () {
         return this.customer.unit * 2.0;
     };
     ElectricityBillService.prototype.calculateTotalBill = function () {
-        var initialBill = this.calculateElectricityBill();
-        if (initialBill > 400 || initialBill < 100) {
+        var initialBill = this.calculateConsumedElectricityBill();
+        if (initialBill > 400) {
             return initialBill * 1.15;
         }
         return initialBill;
@@ -32,7 +32,13 @@ var ElectricityBillService = /** @class */ (function () {
         console.log('Customer Id:', this.customer.id);
         console.log('Customer Name:', this.customer.name);
         console.log('Customer consumed electricity:', this.customer.unit);
-        console.log('Customer Bill:', this.calculateTotalBill().toFixed(2));
+        var bill = Number(this.calculateTotalBill().toFixed(2));
+        if (bill > 100) {
+            console.log('Customer Bill:', bill);
+        }
+        else {
+            console.log('Customer Bill:', bill, '- Too low');
+        }
     };
     return ElectricityBillService;
 }());

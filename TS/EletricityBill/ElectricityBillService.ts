@@ -27,7 +27,7 @@ export class ElectricityBillService {
 
     calculateTotalBill() : number {
         let initialBill = this.calculateConsumedElectricityBill();
-        if (initialBill > 400 || initialBill < 100) {
+        if ( initialBill > 400 ) {
             return initialBill * 1.15;
         }
         return initialBill;
@@ -37,6 +37,13 @@ export class ElectricityBillService {
         console.log('Customer Id:',this.customer.id);
         console.log('Customer Name:',this.customer.name);
         console.log('Customer consumed electricity:',this.customer.unit);
-        console.log('Customer Bill:',this.calculateTotalBill().toFixed(2));  
+        let bill = Number(this.calculateTotalBill().toFixed(2));
+        if (bill > 100) {
+            console.log('Customer Bill:',bill); 
+        }
+        else {
+            console.log('Customer Bill:',bill,'- Too low');
+        }
+         
     }
 }
