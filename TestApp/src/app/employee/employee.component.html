@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+<thead>
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name </th>
+        <th>Employee Location</th>
+        <th>IsEmployed</th>
+        <th>Salary - with Pipe</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let employee of emp;trackBy:trackByEmployee">
+        <ng-container *ngIf="!employee.isActive">
+            <td>{{employee.id}}</td>
+            <td [ngStyle]="{'text-decoration':(employee.id % 2) === 0 ? 'overline' : 'underline' }">{{employee.name}}</td>
+            <td [ngClass]="{
+                'text-success':employee.location === 'New York',
+                'text-info':employee.location === 'Pune',
+                'text-danger':employee.location === 'LA'}">
+                {{employee.location|uppercase}}</td>
+            <td>{{employee.isActive?'YES':'NO'}}</td>
+            <td>{{employee.salary | number:'3.0-2'}}</td>
+        </ng-container>
+    </tr>
+</tbody>
+</table>
