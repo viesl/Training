@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th >Sentence</th>        
+        <th >Number of letters</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sentence of sentences">
+            <td>{{sentence}}</td>
+            <td>{{sentence | numberOfLetters}}</td>
+        </tr>
+    </tbody>
+  </table>

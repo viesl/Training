@@ -1,0 +1,11 @@
+<label>Number:</label>
+<br>
+<input type="number" placeholder="1" [(ngModel)]="number">
+<br>
+<label>to the power of </label>
+<br>
+<input type="number" [(ngModel)]="power">
+<br>
+<label>is equal to: </label>
+<br>
+<span>{{number | exponent:power}}</span>
