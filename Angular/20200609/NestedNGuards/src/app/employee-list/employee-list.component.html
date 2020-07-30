@@ -1,0 +1,15 @@
+    <table class="table" *ngIf="employeelist.length; else elseBlock">
+        <thead>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Location</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let e of employeelist">
+            <td>{{ e.id }}</td>
+            <td>{{ e.name }}</td>
+            <td>{{ e.location }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock><br />No Employee Records Found</ng-template>
