@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NestedNGuards"
+    }
+  },
+  "defaultProject": "NestedNGuards",
+  "cli": {
+    "analytics": false
+  }
 }
