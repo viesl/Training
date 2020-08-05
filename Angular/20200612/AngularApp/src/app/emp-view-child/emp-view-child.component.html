@@ -1,0 +1,28 @@
+
+<div class="form-inline">
+    <ng-content></ng-content>
+    <button (click)="searchContentChildName()" class="btn btn-outline-primary my-2">Content Child - Search Name</button>
+</div>
+<div class="form-inline">
+    <input
+      class="form-control mr-2"
+      #searchViewChild
+      style="width: 300px;"
+      placeholder="Search"
+      type="text"/>
+    <button (click)="searchViewChildName()" class="btn btn-outline-primary my-2">View Child - Search Name</button>
+</div>
+<table class="table">
+    <thead>
+    <th>Employee Id</th>
+    <th>Employee Name</th>
+    <th>Employee Location</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let e of employeeList">
+        <td>{{ e.id }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.location }}</td>
+    </tr>
+    </tbody>
+</table>
