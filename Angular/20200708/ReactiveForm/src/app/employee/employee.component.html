@@ -1,0 +1,92 @@
+<div class="container">
+  <form [formGroup]="employeeForm">
+    <div>
+      <label>Username:</label>
+      <input class="form-control" type="text" 
+              formControlName="username"/>
+      <div class="alert alert-danger" *ngIf="employeeForm.get('username').errors?.invalidUsername">    
+              Name is not in capital letters    
+      </div>  
+    </div>
+    <div>
+      <label>Email:</label>
+      <input class="form-control" type="email" formControlName="email"/>
+      <div *ngIf="employeeForm.get('email').invalid && (employeeForm.get('email').dirty || employeeForm.get('email').touched)"
+          class="alert alert-danger">
+          <div *ngIf="employeeForm.get('email').errors.email">
+              Email is invalid.
+          </div>
+      </div>
+    </div>
+    <div formArrayName="employeeInfo">
+      <h2>Employee Info</h2>
+      <div [formGroupName]="i" *ngFor="let info of employeeInfo.controls; let i=index">
+        <div>
+          <label>Company Name:</label>
+            <input class="form-control" type="text" formControlName="companyName" />
+            <div *ngIf="info.get('companyName').dirty || info.get('companyName').touched">
+                <div class="alert alert-danger"    
+                      *ngIf="info.get('companyName').errors?.invalidCompanyName">    
+                      Company name not found  
+                </div>  
+            </div>
+        </div>
+        <div>
+          <label>Job Title:</label>
+          <select class="form-control" formControlName="jobTitle">
+            <option value="">Select an option</option>
+            <option>Junior Engineer</option>
+            <option>Engineer</option>
+            <option>Senior Engineer</option>
+          </select>
+        </div>
+        <div>
+          <label>From Date:</label>
+            <input class="form-control"
+                   type="date"
+                   formControlName="fromDate">
+        </div>
+        <div>
+          <label>To Date:</label>
+            <input class="form-control"
+                   type="date"
+                   formControlName="toDate">
+        </div>
+        <h3>Skills:</h3>
+        <div formArrayName="skill">
+          <div [formGroupName]="j"
+           *ngFor="let s of getSkills(i).controls; let j=index">
+          <div>
+            <label>Skill:</label>
+              <input class="form-control"
+                    type="text"
+                    formControlName="skillName">
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-outline-primary"
+                  type="button"
+                  (click)="addSkill(i)">
+            Add Skill
+          </button>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary"
+                type="button"
+                (click)="addEmployeeInfo()">
+          Add Employee Info
+        </button>
+      </div>
+
+    </div>
+    <br>
+    <button class="btn btn-primary" [disabled]="!employeeForm.valid">Save</button>
+  </div>
+  </form>
+</div>
+
+<br> Dirty {{employeeForm.dirty}}
+<br> Touched {{employeeForm.touched}}
+<br> Valid {{employeeForm.valid}}
+<br> Value {{employeeForm.value | json}}
