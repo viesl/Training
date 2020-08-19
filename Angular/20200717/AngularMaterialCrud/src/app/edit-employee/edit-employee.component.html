@@ -1,0 +1,43 @@
+<div class="container mat-elevation-z8">
+  <div class="example-loading-shade"
+         *ngIf="isDataLoading">
+      <mat-spinner *ngIf="isDataLoading"></mat-spinner>
+    </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/employees']"><mat-icon>list</mat-icon></a>
+  </div>
+  <h2>Update form: </h2>
+  <form [formGroup]="employeeForm" (ngSubmit)="onFormSubmit(employeeForm)">
+    <div>
+      <label>Name:</label>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </div>
+    <br>
+    <div>
+      <label>Designation:</label>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="designation">
+      </mat-form-field>
+    </div>
+    <br>
+    <div>
+      <label>Department:</label>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="department">
+      </mat-form-field>
+    </div>
+    <br>
+    <div>
+      <label>Gender:</label>
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="Gender">
+      </mat-form-field>
+    </div>
+    <div class="button-row">
+      <button mat-flat-button color="primary" type="submit" [disabled]="!employeeForm.valid" ><mat-icon>save</mat-icon></button>
+    </div>
+  </form>
+  
+</div>
