@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/C#/20200804/PrivateConstructor/.vs/PrivateConstructor
+/C#/20200804/PrivateConstructor/PrivateConstructor/bin/Debug/netcoreapp3.1
+/C#/20200804/PrivateConstructor/PrivateConstructor/obj
