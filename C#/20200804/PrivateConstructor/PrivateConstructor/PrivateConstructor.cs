@@ -8,6 +8,23 @@ namespace PrivateConstructor
     {
         private PrivateConstructor() { }
 
-        public static string LogMessage { get; } = "PrivateConstructor class log field used.\nCannot instantiate this class.\n";
+        public PrivateConstructor(string message) {
+            logMessage = message;
+        }
+
+        private PrivateConstructor(string message, int a)
+        {
+            logMessage = message;
+            test = a;
+
+        }
+
+        public static int test;
+        public static string logMessage = "PrivateConstructor class log field used.\nCannot instantiate this class with empty constructor.\n";
+
+        public static PrivateConstructor GetPrivateConstructorObjectFromPrivateConstructor(string message, int number)
+        {
+            return new PrivateConstructor(message, number);
+        }
     }
 }
