@@ -37,8 +37,9 @@ namespace CSFeatures
             Console.WriteLine("Second: {0}", val2);
             Console.WriteLine("Result (Sum): {0}", res);
 
-            Season season = Season.Autumn;
+
             //Enums
+            Season season = Season.Autumn;
             switch (season)
             {
                 case Season.Spring:
