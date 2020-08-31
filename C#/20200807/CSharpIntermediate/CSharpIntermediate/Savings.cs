@@ -14,15 +14,19 @@ namespace CSharpIntermediate
         public override bool Deposit(double amount)
         {
             balance += amount;
-            Console.WriteLine($"Your Account balance is {balance}");
             return true;
         }
 
         public override bool WithDraw(double amount)
         {
+            if (amount > balance)
+            {
+                return false;
+            }
             balance -= amount;
-            Console.WriteLine($"Your Account balance is {balance}");
             return true;
+
+
         }
 
     }

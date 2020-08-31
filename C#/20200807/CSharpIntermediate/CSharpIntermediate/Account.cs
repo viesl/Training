@@ -6,17 +6,16 @@ namespace CSharpIntermediate
 {
     abstract class Account
     {
-        public string id;
+        public string Id;
         public string customerName;
         public DateOfBirth dob;
         public double balance;
-        protected string accType;
         public abstract bool Deposit(double amount);
         public abstract bool WithDraw(double amount);
 
         public Account(string id, string name, double balance, DateOfBirth dateOfBirth)
         {
-            this.id = id;
+            this.Id = id;
             this.customerName = name;
             this.dob = dateOfBirth;
             this.balance = balance;

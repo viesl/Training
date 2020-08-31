@@ -8,7 +8,6 @@ namespace CSharpIntermediate
     {
         static int id = 0;
         string storeId;
-        DateTime dt = new DateTime();
 
         public string GenerateId()
         {

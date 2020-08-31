@@ -21,20 +21,19 @@ namespace CSharpIntermediate
             return true;
         }
 
-        public override bool WithDraw(double amountWith)
+        public override bool WithDraw(double amount)
         {
-            if (amountWith > balance)
+            if (amount > balance)
             {
-                Console.WriteLine("Your Account has insufficient balance");
                 return false;
             }
-            else if (amountWith > dailyWithDraw)
+            else if (amount > dailyWithDraw)
             {
-                Console.WriteLine("You cannot withdraw more than 20000");
                 return false;
             }
             else
             {
+                balance -= amount;
                 return true;
             }
         }

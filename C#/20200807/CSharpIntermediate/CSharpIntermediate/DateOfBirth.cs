@@ -12,6 +12,14 @@ namespace CSharpIntermediate
         public int month;
         public int year;
 
+        public string dateOfBirth 
+        {
+            get
+            {
+                return $"{day} {month} {year}";
+            } 
+        }
+
         public DateOfBirth()
         {
 

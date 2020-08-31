@@ -6,22 +6,24 @@ namespace CSharpIntermediate
     {
         static void Main()
         {
-            string input;
             Bank b = new Bank();
             IdGenerator idGen = new IdGenerator();
             DateOfBirth dob = new DateOfBirth();
-            string accountId;
-            bool val = true;
+            string accountId, input;
+            bool val = true, cycleFlag = true;
+            double depositAmount, withdrawAmount;
+            Account account;
+            
 
             Console.WriteLine("Welcome to Bank Management System");
-            while (true)
+            while (cycleFlag)
             {
                 Console.WriteLine("\r\nHow We Can Help You?");
                 Console.WriteLine("1. Create Account");
                 Console.WriteLine("2. Show Account Information");
                 Console.WriteLine("3. Deposit Amount");
                 Console.WriteLine("4. WithDraw Amount");
-                Console.WriteLine("5. Clear Screen");
+                Console.WriteLine("5. Exit");
                 input = Console.ReadLine();
                 switch (input)
                 {
@@ -43,9 +45,12 @@ namespace CSharpIntermediate
                         name = Console.ReadLine();
                         while (val == true)
                         {
-                            Console.WriteLine("Enter Date Of Birth");
+                            Console.WriteLine("Enter Date Of Birth.");
+                            Console.Write("Day: ");
                             d = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Month: ");
                             m = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Years: ");
                             y = Convert.ToInt32(Console.ReadLine());
 
                             dob.AssignValue(d, m, y);
@@ -69,16 +74,60 @@ namespace CSharpIntermediate
                         b.CreateAccount(accountId, name, accountType, balance, dob);
                         break;
                     case "2":
-                        Console.WriteLine("Enter Account Id");
-                        b.ShowAccountDetails();
+                        ShowAllAccounts(b);
+                        Console.Write("Enter account id: ");
+                        accountId = Console.ReadLine();
+                        try
+                        {
+                            account = b.GetAccount(accountId);
+                            Console.WriteLine($"Account Id: {account.Id}");
+                            Console.WriteLine($"Customer Name: {account.customerName}");
+                            Console.WriteLine($"Date Of Birth: {account.dob.dateOfBirth}");
+                            Console.WriteLine($"Account balance: {account.balance}");
+                            Console.WriteLine($"Account type: {account.GetType().Name}");
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         break;
                     case "3":
-                        Console.WriteLine("Enter Account Id");
-                        b.Deposit();
+                        ShowAllAccounts(b);
+                        Console.Write("Enter Account Id: ");
+                        accountId = Console.ReadLine();
+                        account = b.GetAccount(accountId);
+                        Console.WriteLine($"Your Balance: {account.balance}");
+                        Console.Write("Enter the Amount You Want to Deposit: ");
+                        depositAmount = Convert.ToDouble(Console.ReadLine());
+                        b.Deposit(account, depositAmount);
+                        Console.WriteLine($"Your Balance: {account.balance}");
+                        break;
+                    case "4":
+                        ShowAllAccounts(b);
+                        Console.Write("Enter Account Id: ");
+                        accountId = Console.ReadLine();
+                        account = b.GetAccount(accountId);
+                        Console.WriteLine($"Your Balance: {account.balance}");
+                        Console.Write("Enter the Amount You Want to withdraw: ");
+                        withdrawAmount = Convert.ToDouble(Console.ReadLine());
+                        b.Withdraw(account, withdrawAmount);
+                        Console.WriteLine($"Your Balance: {account.balance}");
+                        break;
+                    case "5":
+                        cycleFlag = false;
                         break;
                     default:
                         break;
                 }
+            }
+        }
+
+        static void ShowAllAccounts(Bank b)
+        {
+            Console.WriteLine("Choose Account");
+            foreach (string id in b.GetAccounts())
+            {
+                Console.WriteLine(id);
             }
         }
     }
