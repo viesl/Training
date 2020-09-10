@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "AngularMaterialCrud"
+  "defaultProject": "AngularMaterialCrud",
+  "cli": {
+    "analytics": false
+  }
 }
