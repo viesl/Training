@@ -11,6 +11,7 @@ namespace HashsetExample
             Employee emp1 = new Employee("Acc1", "Name1");
 
             Employee emp2 = new Employee("Acc2", "Name2");
+            Employee emp3 = new Employee("Acc2", "Name2");
 
             Console.WriteLine("employees.Add(emp1): {0}", employees.Add(emp1));
             
@@ -22,6 +23,7 @@ namespace HashsetExample
             Console.WriteLine("employees.Contains(emp2): {0}", employees.Contains(emp2));
 
             Console.WriteLine("employees.Add(emp1): {0}", employees.Add(emp1));
+            Console.WriteLine("employees.Add(emp3): {0}", employees.Add(emp3));
 
             Console.ReadLine();
         }
